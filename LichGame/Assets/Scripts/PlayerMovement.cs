@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            float diagonalSpeed =  speed / Mathf.Sqrt(speed * speed * 2);
+            float diagonalSpeed =  speed * 0.7f;
             rb.velocity = new Vector2(horizontal * diagonalSpeed, vertical * diagonalSpeed);
         }
 
