@@ -6,9 +6,9 @@ public class CameraFollow : MonoBehaviour
 {
 
     public GameObject Player;
-    public float Speed;
-    public float xOffset;
-    public float yOffset;
+    [SerializeField] private float Speed;
+    [SerializeField] private float xOffset;
+    [SerializeField] private float yOffset;
 
     void Update()
     {

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed;
     private float horizontal;
     private float vertical;
     private bool facingRight = true;
