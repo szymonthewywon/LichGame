@@ -38,6 +38,16 @@ public class NewBehaviourScript : MonoBehaviour
                 }
             }
         }
+        if (lastGeneratedRoomWidth == 1)
+        {
+            Instantiate(rooms[5], new Vector3(totalOffset, 0, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(rooms[3], new Vector3(totalOffset, 0, 0), Quaternion.identity);
+            totalOffset += 14;
+            Instantiate(rooms[5], new Vector3(totalOffset, 0, 0), Quaternion.identity);
+        }
 
     }
     private void generateOneToTwo()
@@ -69,4 +79,5 @@ public class NewBehaviourScript : MonoBehaviour
         lastLastGeneratedRoomWidth = lastGeneratedRoomWidth;
         lastGeneratedRoomWidth = 2;
     }
+    
 }
