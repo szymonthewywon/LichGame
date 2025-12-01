@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -32,12 +30,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (horizontal == 0 || vertical == 0)
         {
-            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+            rb.linearVelocity = new Vector2(horizontal * speed, vertical * speed);
         }
         else
         {
             float diagonalSpeed =  speed * 0.7f;
-            rb.velocity = new Vector2(horizontal * diagonalSpeed, vertical * diagonalSpeed);
+            rb.linearVelocity = new Vector2(horizontal * diagonalSpeed, vertical * diagonalSpeed);
         }
 
             

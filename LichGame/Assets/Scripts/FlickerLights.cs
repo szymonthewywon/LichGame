@@ -1,27 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class FlickeringLights : MonoBehaviour
+public class FlickerLights : MonoBehaviour
 {
-    public float startingLightIntensity;
-    public float minRadius;
-    public float maxRadius;
+    [SerializeField] private float startingLightIntensity;
+    [SerializeField] private float minRadius;
+    [SerializeField] private float maxRadius;
+    [SerializeField] private float flickeringIntensity;
     public Light2D lightSource;
-    public float flickeringIntensity;
-
     void Start()
     {
-        startingLightIntensity = lightSource.intensity;
-        minRadius = lightSource.pointLightInnerRadius;
-        maxRadius = lightSource.pointLightOuterRadius; 
         StartCoroutine(flicker());
     }
 
-    void Update()
-    {
-    }
+
     IEnumerator flicker()
     {
         while (true)
