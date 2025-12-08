@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1097632518826306982}
   - component: {fileID: 6824340304706355309}
   - component: {fileID: 6969114768327465063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!19719996 &6969114768327465063
