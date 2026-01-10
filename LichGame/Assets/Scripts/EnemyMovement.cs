@@ -1,18 +1,26 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private AIDestinationSetter AIDestinationSetter;
+    private GameObject player;
     void Start()
     {
-        
+        player = GameObject.Find("Player");
+        StartCoroutine(updatePlayerLocation());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    IEnumerator updatePlayerLocation()
     {
-        
+        while (true)
+        {
+            AIDestinationSetter.target = player.transform;
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
+
