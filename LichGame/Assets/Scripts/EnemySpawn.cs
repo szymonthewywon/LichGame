@@ -23,7 +23,7 @@ public class EnemySpawn : MonoBehaviour
     }
     private void spawnEnemy(GameObject Enemy)
     {
-        Instantiate(Enemy, transform.position, Quaternion.identity);
+        Instantiate(Enemy, transform.position + new Vector3(Random.Range(-2.5f,2.5f), Random.Range(-2.5f, 2.5f),0), Quaternion.identity);
     }
     IEnumerator spawnForRound(int points, int groupSize, float timeBetweenWaves)
     {
