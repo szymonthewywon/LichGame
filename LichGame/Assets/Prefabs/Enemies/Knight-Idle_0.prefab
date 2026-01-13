@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5564411559615644080}
   m_Layer: 8
   m_Name: Knight-Idle_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pointValue: 10
+  health: 2
 --- !u!114 &2449082851753831461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   AIDestinationSetter: {fileID: 7132614546370317540}
+  mapManager: {fileID: 0}
 --- !u!50 &3607918913289466337
 Rigidbody2D:
   serializedVersion: 5

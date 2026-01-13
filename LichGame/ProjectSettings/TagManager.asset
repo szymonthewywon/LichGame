@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Node
+  - Enemy
+  - Wall
+  - FloorButton
+  - WallButton
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - LightBlocker
   - Player
   - Enemy
-  - 
-  - 
+  - FriendlyProjectile
+  - PlayerUnpassable
   - 
   - 
   - 
@@ -41,6 +45,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LightIgnore
+    uniqueID: 3206573901
     locked: 0
   m_RenderingLayers:
   - Default

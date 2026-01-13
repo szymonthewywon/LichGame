@@ -8,7 +8,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject[] rooms;
     [SerializeField] private int mapLen;
     public List<List<GameObject>> nodes = new List<List<GameObject>>();
-    private List<GameObject> generatedRooms = new List<GameObject>();
+    public List<GameObject> generatedRooms = new List<GameObject>();
     private int lastGeneratedRoomWidth = 1;
     private int lastLastGeneratedRoomWidth;
     private float totalOffset = 0;
@@ -19,9 +19,9 @@ public class MapManager : MonoBehaviour
             if (lastGeneratedRoomWidth == 1)
             {
                 generateOneToTwo();
-                
+
             }
-            else if (lastGeneratedRoomWidth == 2) 
+            else if (lastGeneratedRoomWidth == 2)
             {
                 if (lastLastGeneratedRoomWidth == 2)
                 {
@@ -29,12 +29,12 @@ public class MapManager : MonoBehaviour
                 }
                 else if (lastLastGeneratedRoomWidth == 1)
                 {
-                     int nextRoomLen = Random.Range(1, 3);
-                     if (nextRoomLen == 1)
+                    int nextRoomLen = Random.Range(1, 3);
+                    if (nextRoomLen == 1)
                     {
                         generateTwoToOne();
                     }
-                     else if (nextRoomLen == 2)
+                    else if (nextRoomLen == 2)
                     {
                         generateTwoToTwo();
                     }
@@ -62,6 +62,7 @@ public class MapManager : MonoBehaviour
         {
             Debug.Log($"nodes[{i}] length: {nodes[i].Count}");
         }
+
     }
     private void generateOneToTwo()
     {
@@ -71,7 +72,7 @@ public class MapManager : MonoBehaviour
         totalOffset += 14;
         room = Instantiate(rooms[Random.Range(0, 2)], new Vector3(totalOffset, 12, 0), Quaternion.identity);
         generatedRooms.Add(room);
-        room = Instantiate(rooms[Random.Range(0, 2)], new Vector3(totalOffset , -13, 0), Quaternion.identity);
+        room = Instantiate(rooms[Random.Range(0, 2)], new Vector3(totalOffset, -13, 0), Quaternion.identity);
         generatedRooms.Add(room);
         totalOffset += 18;
         lastLastGeneratedRoomWidth = lastGeneratedRoomWidth;
@@ -116,5 +117,5 @@ public class MapManager : MonoBehaviour
         }
         return nodes;
     }
-    
+
 }
