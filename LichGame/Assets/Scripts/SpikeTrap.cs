@@ -1,18 +1,41 @@
 using UnityEngine;
-using System.Collections;
+
 public class SpikeTrap : MonoBehaviour
 {
+    public float damageInterval = 1.5f;
+    public int damage = 1;
 
-    void Start()
-    {
+    private float damageTimer = 0f;
+    private bool timerTickedThisFrame = false;
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void LateUpdate()
     {
-        if (collision.tag == "Enemy")
+        timerTickedThisFrame = false;
+        if (damageTimer >= damageInterval)
         {
-            collision.GetComponent<EnemyInformation>().health -= 1;
+            damageTimer = 0f;
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+
+            if (!timerTickedThisFrame)
+            {
+                damageTimer += Time.deltaTime;
+                timerTickedThisFrame = true;
+            }
+
+            if (damageTimer >= damageInterval)
+            {
+                EnemyInformation enemy = collision.GetComponent<EnemyInformation>();
+                if (enemy != null)
+                {
+                    enemy.health -= damage;
+                }
+            }
+        }
+    }
 }

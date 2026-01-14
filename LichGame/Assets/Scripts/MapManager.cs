@@ -7,6 +7,7 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] rooms;
     [SerializeField] private int mapLen;
+    [SerializeField] private GameObject goal;
     public List<List<GameObject>> nodes = new List<List<GameObject>>();
     public List<GameObject> generatedRooms = new List<GameObject>();
     private int lastGeneratedRoomWidth = 1;
@@ -14,6 +15,7 @@ public class MapManager : MonoBehaviour
     private float totalOffset = 0;
     void Start()
     {
+        nodes.Add(getNodes(GameObject.Find("GridMainRoom")));
         for (int i = 0; i < mapLen; i++)
         {
             if (lastGeneratedRoomWidth == 1)

@@ -9,7 +9,7 @@ public class DungeonCameraZoomOut : MonoBehaviour
     public float zoomSpeed;
     public float roomZoom;
     private MapManager mapManager;
-    [SerializeField] private List<Transform> roomList;
+    [SerializeField]private List<Transform> roomList;
     Coroutine zoomRoutine;
 
     private void Start()
@@ -20,22 +20,25 @@ public class DungeonCameraZoomOut : MonoBehaviour
     public void ZoomOutToDungeon(List<Transform> rooms)
     {
         Vector3 dungeonCenter = GetDungeonCenter(rooms);
+
         if (zoomRoutine != null)
         {
             StopCoroutine(zoomRoutine);
         }
-        zoomRoutine = StartCoroutine(ZoomRoutine(dungeonCenter, overviewZoom));
+
+        zoomRoutine = StartCoroutine(ZoomRoutine(dungeonCenter));
     }
+
 
     Vector3 GetDungeonCenter(List<Transform> rooms)
     {
         Vector3 first = rooms[0].position;
         Vector3 last = rooms[rooms.Count - 1].position;
 
-        return (first + last) * 0.5f + new Vector3(30, 0, 0);
+        return (first + last) * 0.5f + new Vector3(30,0,0);
     }
 
-    IEnumerator ZoomRoutine(Vector3 targetCenter, float targetZoom)
+    IEnumerator ZoomRoutine(Vector3 targetCenter)
     {
         Vector3 startPos = cam.transform.position;
         float startZoom = cam.orthographicSize;
@@ -45,19 +48,22 @@ public class DungeonCameraZoomOut : MonoBehaviour
         float t = 0f;
         while (t < 1f)
         {
+            t += Time.unscaledDeltaTime * zoomSpeed;
+
             cam.transform.position = Vector3.Lerp(startPos, targetCenter, t);
-            cam.orthographicSize = Mathf.Lerp(startZoom, targetZoom, t);
+            cam.orthographicSize = Mathf.Lerp(startZoom, overviewZoom, t);
+
             yield return null;
         }
     }
     IEnumerator LateStart()
     {
         yield return null;
-        for (int i = 0; i < mapManager.generatedRooms.Count; i++)
+        for(int i = 0; i < mapManager.generatedRooms.Count; i++)
         {
             roomList.Add(mapManager.generatedRooms[i].GetComponent<Transform>());
         }
-        this.enabled = false;
+        mapManager.GetComponent<DungeonCameraZoomOut>().enabled = false;
     }
     private void OnEnable()
     {

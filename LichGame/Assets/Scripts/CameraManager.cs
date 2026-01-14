@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private DungeonCameraZoomOut dungeonCamera;
+    [SerializeField] private CameraFollow playerCamera;
+    public bool dungeonViewActive = false; 
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        dungeonViewActive = dungeonCamera.enabled;
     }
 }

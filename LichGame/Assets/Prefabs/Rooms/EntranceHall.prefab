@@ -5484,7 +5484,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyList:
+  - {fileID: 5639643719909173326, guid: 77d2ca61f736d2441995d5ae5e3b9ce2, type: 3}
   - {fileID: 5639643719909173326, guid: 451877fcba47adc418db095b150589b5, type: 3}
+  - {fileID: 5639643719909173326, guid: 015ef67459ecc6348a440b6debb58cba, type: 3}
+  - {fileID: 5639643719909173326, guid: 562aa7ac4bed52a40bc10b22bd47dc42, type: 3}
+  - {fileID: 5639643719909173326, guid: c9a86bfc32b295b439c5ec390d0af0fb, type: 3}
   spawningActive: 0
   stage: 0
   waveManager: {fileID: 0}

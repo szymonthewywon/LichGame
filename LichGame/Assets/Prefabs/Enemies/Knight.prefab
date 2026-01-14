@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 3607918913289466337}
   - component: {fileID: 5564411559615644080}
   m_Layer: 8
-  m_Name: Knight-Idle_0
+  m_Name: Knight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,9 +88,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1901059328, guid: 2f79b2b8a3b048a40b67199165e49ecf, type: 3}
+  m_Sprite: {fileID: -1972063985, guid: fa5af54ab9a3e8347b1e80941a95f236, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -109,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 5639643719909173326}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1e2b6c125399b9846a70d3ec630b96c7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c19ffba1f077894b927295df4ef309e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pointValue: 10
+  essenceOnKill: 2
   health: 2
 --- !u!114 &2449082851753831461
 MonoBehaviour:
@@ -282,7 +283,7 @@ Rigidbody2D:
   m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5564411559615644080
 MonoBehaviour:
   m_ObjectHideFlags: 0
